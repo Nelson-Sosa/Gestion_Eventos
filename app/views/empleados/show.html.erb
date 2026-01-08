@@ -1,0 +1,9 @@
+<h1>Empleado: <%= @empleado.nombre %></h1>
+
+<p><strong>Puesto:</strong> <%= @empleado.puesto %></p>
+<p><strong>Teléfono:</strong> <%= @empleado.telefono %></p>
+<p><strong>Email:</strong> <%= @empleado.email %></p>
+<p><strong>Activo:</strong> <%= @empleado.activo ? "Sí" : "No" %></p>
+
+<%= link_to "Editar", edit_empleado_path(@empleado), class: "btn btn-primary" %>
+<%= link_to "Volver", empleados_path, class: "btn btn-secondary" %>

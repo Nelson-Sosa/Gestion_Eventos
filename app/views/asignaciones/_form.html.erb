@@ -1,0 +1,39 @@
+<%= form_with(model: @asignacion, url: @asignacion.new_record? ? asignaciones_path : asignaciones_path(@asignacion), local: true) do |form| %>
+  <% if @asignacion.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(@asignacion.errors.count, "error") %> impidieron guardar:</h4>
+      <ul>
+        <% @asignacion.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :evento_id, "Evento", class: "form-label" %>
+    <%= form.collection_select :evento_id, Evento.all, :id, :nombre_evento, { prompt: "Seleccionar evento" }, class: "form-select" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :empleado_id, "Empleado", class: "form-label" %>
+    <%= form.collection_select :empleado_id, Empleado.all, :id, :nombre, { prompt: "Seleccionar empleado" }, class: "form-select" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :rol, "Rol", class: "form-label" %>
+    <%= form.text_field :rol, class: "form-control", placeholder: "Ej: Técnico de sonido, Seguridad, etc." %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :tarea, "Tarea asignada", class: "form-label" %>
+    <%= form.text_field :tarea, class: "form-control", placeholder: "Ej: Montar sonido a las 18:00" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :estado, "Estado", class: "form-label" %>
+    <%= form.select :estado, ["Pendiente", "En Progreso", "Completado"], { prompt: "Seleccionar estado" }, class: "form-select" %>
+  </div>
+
+  <%= form.submit "Guardar Asignación", class: "btn btn-primary" %>
+<% end %>

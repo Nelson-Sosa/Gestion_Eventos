@@ -1,0 +1,52 @@
+<%= form_with(model: @contrato, local: true) do |form| %>
+  <% if @contrato.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(@contrato.errors.count, "error") %> impidieron guardar este contrato:</h4>
+      <ul>
+        <% @contrato.errors.full_messages.each do |mensaje| %>
+          <li><%= mensaje %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- Selección de Cliente -->
+  <div class="mb-3">
+    <%= form.label :cliente_id, "Cliente", class: "form-label fw-bold" %>
+    <%= form.collection_select :cliente_id, Cliente.all, :id, :nombre,
+                               { prompt: "Seleccionar Cliente" }, class: "form-select shadow-sm" %>
+  </div>
+
+  <!-- Selección de Evento -->
+  <div class="mb-3">
+    <%= form.label :evento_id, "Evento", class: "form-label fw-bold" %>
+    <%= form.collection_select :evento_id, Evento.all, :id, :nombre_evento,
+                               { prompt: "Seleccionar Evento" }, class: "form-select shadow-sm" %>
+  </div>
+
+  <!-- Fecha de Contrato -->
+  <div class="mb-3">
+    <%= form.label :fecha_contrato, "Fecha de Contrato", class: "form-label fw-bold" %>
+    <%= form.datetime_select :fecha_contrato, class: "form-control shadow-sm" %>
+  </div>
+
+  <!-- Monto Total -->
+  <div class="mb-3">
+    <%= form.label :monto_total, "Monto Total", class: "form-label fw-bold" %>
+    <%= form.number_field :monto_total, step: 0.01, class: "form-control shadow-sm" %>
+  </div>
+
+  <!-- Estado del Contrato -->
+  <div class="mb-3">
+    <%= form.label :estado, "Estado", class: "form-label fw-bold" %>
+    <%= form.select :estado, options_for_select(["Pendiente", "Firmado", "Cancelado"], @contrato.estado),
+                    { prompt: "Seleccionar Estado" }, class: "form-select shadow-sm" %>
+  </div>
+
+  <!-- Botones -->
+  <div class="mt-4 d-flex gap-2">
+    <%= form.submit "Guardar Contrato", class: "btn btn-primary px-4" %>
+    <%= link_to "Volver", contratos_path, class: "btn btn-secondary px-4" %>
+  </div>
+<% end %>
+

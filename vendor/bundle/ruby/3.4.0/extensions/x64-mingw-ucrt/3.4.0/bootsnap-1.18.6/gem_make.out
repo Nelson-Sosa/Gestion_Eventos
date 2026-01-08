@@ -1,0 +1,22 @@
+current directory: C:/Users/USER/Desktop/Programacion 4/Gestion-Eventos/vendor/bundle/ruby/3.4.0/gems/bootsnap-1.18.6/ext/bootsnap
+C:/Ruby34-x64/bin/ruby.exe extconf.rb
+checking for fdatasync() in unistd.h... no
+checking for whether -O3 is accepted as CFLAGS... yes
+checking for whether -std=c99 is accepted as CFLAGS... yes
+creating Makefile
+
+current directory: C:/Users/USER/Desktop/Programacion 4/Gestion-Eventos/vendor/bundle/ruby/3.4.0/gems/bootsnap-1.18.6/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20251027-6768-swh7e5 sitelibdir\=./.gem.20251027-6768-swh7e5 clean
+
+current directory: C:/Users/USER/Desktop/Programacion 4/Gestion-Eventos/vendor/bundle/ruby/3.4.0/gems/bootsnap-1.18.6/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20251027-6768-swh7e5 sitelibdir\=./.gem.20251027-6768-swh7e5
+generating bootsnap-x64-mingw-ucrt.def
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.so
+
+current directory: C:/Users/USER/Desktop/Programacion 4/Gestion-Eventos/vendor/bundle/ruby/3.4.0/gems/bootsnap-1.18.6/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20251027-6768-swh7e5 sitelibdir\=./.gem.20251027-6768-swh7e5 install
+/usr/bin/install -c -m 0755 bootsnap.so ./.gem.20251027-6768-swh7e5/bootsnap
+
+current directory: C:/Users/USER/Desktop/Programacion 4/Gestion-Eventos/vendor/bundle/ruby/3.4.0/gems/bootsnap-1.18.6/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20251027-6768-swh7e5 sitelibdir\=./.gem.20251027-6768-swh7e5 clean

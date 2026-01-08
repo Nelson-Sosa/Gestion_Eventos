@@ -1,0 +1,50 @@
+<h1 class="mb-4">Contrato #<%= @contrato.numero_contrato %></h1>
+
+<div class="card mb-4 shadow-sm">
+  <div class="card-body">
+    <h5 class="card-title">Datos del contrato</h5>
+    <p><strong>Fecha del contrato:</strong> <%= @contrato.fecha_contrato.strftime("%d/%m/%Y") %></p>
+    <p><strong>Monto total:</strong> $<%= number_with_precision(@contrato.monto_total, precision: 2) %></p>
+    <p><strong>Estado:</strong> <%= @contrato.estado %></p>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="card-body">
+    <h5 class="card-title">Cliente</h5>
+    <p><strong>Nombre:</strong> <%= @contrato.cliente.nombre %> <%= @contrato.cliente.apellido %></p>
+    <p><strong>Tipo de cliente:</strong> <%= @contrato.cliente.tipo %></p>
+    <p><strong>Teléfono:</strong> <%= @contrato.cliente.telefono %></p>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="card-body">
+    <h5 class="card-title">Evento asociado</h5>
+    <p><strong>Nombre del evento:</strong> <%= @contrato.evento.nombre_evento %></p>
+    <p><strong>Tipo de evento:</strong> <%= @contrato.evento.tipo_evento %></p>
+    <p><strong>Fecha inicio:</strong> <%= @contrato.evento.fecha_inicio.strftime("%d/%m/%Y %H:%M") %></p>
+    <p><strong>Fecha fin:</strong> <%= @contrato.evento.fecha_fin.strftime("%d/%m/%Y %H:%M") %></p>
+    <p><strong>Lugar:</strong> <%= @contrato.evento.lugar %></p>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="card-body">
+    <h5 class="card-title">Servicios incluidos</h5>
+    <% if @contrato.servicios.any? %>
+      <ul class="list-group list-group-flush">
+        <% @contrato.servicios.each do |servicio| %>
+          <li class="list-group-item"><%= servicio.nombre %> - $<%= number_with_precision(servicio.precio, precision: 2) %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No hay servicios asociados a este contrato.</p>
+    <% end %>
+  </div>
+</div>
+
+<div class="mt-3">
+  <%= link_to 'Editar contrato', edit_contrato_path(@contrato), class: "btn btn-primary me-2" %>
+  <%= link_to 'Volver a contratos', contratos_path, class: "btn btn-secondary" %>
+</div>

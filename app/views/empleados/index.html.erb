@@ -1,0 +1,242 @@
+<style>
+    .btn-add-empleados {
+        background: linear-gradient(90deg, #00a8ff, #0097e6);
+        color: #fff;
+        font-weight: 600;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 168, 255, 0.3);
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        font-size: 15px;
+    }
+
+    .btn-add-contrato:hover {
+        background: linear-gradient(90deg, #0097e6, #00a8ff);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 168, 255, 0.4);
+        text-decoration: none;
+        color: white;
+    }
+</style>
+<h1 class="mb-4 text-primary fw-bold d-flex align-items-center">
+  <i class="bi bi-people-fill me-2"></i> Empleados
+</h1>
+<!-- Buscador moderno -->
+<div class="search-form mb-3">
+  <%= form_with(url: empleados_path, method: :get, local: true) do |f| %>
+    <div class="search-wrapper">
+      <%= f.text_field :search,
+                       value: params[:search],
+                       placeholder: "Buscar empleado, nombre, puesto, teléfono o email...",
+                       class: "input-search",
+                       oninput: "autoSearch(this)" %>
+      <button type="button" class="clear-btn"
+              onclick="this.previousElementSibling.value=''; this.form.submit();">
+        ×
+      </button>
+    </div>
+  <% end %>
+</div>
+
+<style>
+    .search-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 420px;
+    }
+
+    .input-search {
+        width: 100%;
+        padding: 10px 40px 10px 15px;
+        border-radius: 10px;
+        border: 2px solid #00a8ff;
+        outline: none;
+        transition: 0.3s;
+    }
+
+    .input-search:focus {
+        box-shadow: 0 0 8px rgba(0, 168, 255, 0.4);
+    }
+
+    .clear-btn {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        border: none;
+        background: transparent;
+        font-size: 20px;
+        color: #555;
+        cursor: pointer;
+    }
+    .pagination {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        gap: 5px;
+    }
+
+    .page-item .page-link {
+        display: block;
+        padding: 6px 12px;
+        background-color: #f1f2f6;
+        border-radius: 5px;
+        color: #273c75;
+        text-decoration: none;
+        transition: all 0.2s;
+    }
+
+    .page-item .page-link:hover {
+        background-color: #00a8ff;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .page-item.active .page-link {
+        background-color: #273c75;
+        color: white;
+    }
+
+    .page-item.disabled .page-link {
+        cursor: default;
+        background-color: #e0e0e0;
+        color: #888;
+    }
+     .btn-add-empleados {
+         background: linear-gradient(90deg, #00a8ff, #0097e6);
+         color: #fff;
+         font-weight: 600;
+         border: none;
+         padding: 10px 18px;
+         border-radius: 10px;
+         box-shadow: 0 4px 12px rgba(0, 168, 255, 0.3);
+         transition: all 0.3s ease;
+         display: inline-flex;
+         align-items: center;
+         font-size: 15px;
+         text-decoration: none;
+     }
+
+    .btn-add-empleados:hover {
+        background: linear-gradient(90deg, #0097e6, #00a8ff);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 168, 255, 0.4);
+        color: white;
+        text-decoration: none;
+    }
+    /* Animación suave para íconos */
+    .bi {
+        transition: transform 0.25s ease, color 0.25s ease;
+    }
+
+    .bi:hover {
+        transform: scale(1.25) rotate(5deg);
+        color: #00a8ff;
+    }
+
+    .btn-outline-secondary .bi:hover { color: #0984e3; }
+    .btn-outline-primary .bi:hover   { color: #e17055; }
+    .btn-outline-danger .bi:hover    { color: #d63031; }
+
+
+</style>
+
+<script>
+    let timer;
+    function autoSearch(input) {
+        clearTimeout(timer);
+        timer = setTimeout(() => input.form.submit(), 400);
+    }
+</script>
+
+
+<div class="mb-3">
+  <%= link_to new_empleado_path, class: "btn-add-empleados" do %>
+    <i class="bi bi-person-plus-fill me-2"></i> Agregar Empleado
+  <% end %>
+</div>
+
+<table class="table table-hover align-middle shadow-sm">
+  <thead class="table-primary">
+  <tr>
+    <th>ID</th>
+    <th>Nombre</th>
+    <th>Puesto</th>
+    <th>Teléfono</th>
+    <th>Email</th>
+    <th>Activo</th>
+    <th>Acciones</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @empleados.each do |empleado| %>
+    <tr>
+      <td><%= empleado.id %></td>
+      <td><%= empleado.nombre %></td>
+      <td><%= empleado.puesto %></td>
+      <td><%= empleado.telefono %></td>
+      <td><%= empleado.email %></td>
+      <td><%= empleado.activo ? "Sí" : "No" %></td>
+
+      <td class="text-center">
+        <div class="btn-group" role="group">
+
+          <%= link_to empleado_path(empleado),
+                      class: "btn btn-sm btn-outline-secondary d-flex align-items-center gap-1" do %>
+            <i class="bi bi-eye"></i> Ver
+          <% end %>
+
+          <%= link_to edit_empleado_path(empleado),
+                      class: "btn btn-sm btn-outline-primary d-flex align-items-center gap-1" do %>
+            <i class="bi bi-pencil-square"></i> Editar
+          <% end %>
+
+          <%= button_to empleado_path(empleado),
+                        method: :delete,
+                        class: "btn btn-sm btn-outline-danger d-flex align-items-center gap-1",
+                        form: { onsubmit: "return confirm('¿Eliminar empleado?');" } do %>
+            <i class="bi bi-trash"></i> Eliminar
+          <% end %>
+
+        </div>
+      </td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<!-- Paginación -->
+<nav class="d-flex justify-content-center mt-4">
+  <ul class="pagination">
+
+    <% if @empleados.prev_page %>
+      <li class="page-item">
+        <%= link_to "Anterior", url_for(page: @empleados.prev_page), class: "page-link" %>
+      </li>
+    <% end %>
+
+    <% (1..@empleados.total_pages).each do |page| %>
+      <% if page == @empleados.current_page %>
+        <li class="page-item active">
+          <span class="page-link"><%= page %></span>
+        </li>
+      <% else %>
+        <li class="page-item">
+          <%= link_to page, url_for(page: page), class: "page-link" %>
+        </li>
+      <% end %>
+    <% end %>
+
+    <% if @empleados.next_page %>
+      <li class="page-item">
+        <%= link_to "Siguiente", url_for(page: @empleados.next_page), class: "page-link" %>
+      </li>
+    <% end %>
+
+  </ul>
+</nav>

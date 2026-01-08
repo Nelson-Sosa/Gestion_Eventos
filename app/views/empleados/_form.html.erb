@@ -1,0 +1,42 @@
+<%= form_with(model: @empleado, local: true) do |form| %>
+
+  <% if @empleado.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(@empleado.errors.count, "error") %> impidieron guardar este empleado:</h4>
+      <ul>
+        <% @empleado.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :nombre, class: "form-label fw-bold" %>
+    <%= form.text_field :nombre, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :puesto, class: "form-label fw-bold" %>
+    <%= form.text_field :puesto, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :telefono, class: "form-label fw-bold" %>
+    <%= form.text_field :telefono, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :email, class: "form-label fw-bold" %>
+    <%= form.email_field :email, class: "form-control" %>
+  </div>
+
+  <div class="form-check mb-3">
+    <%= form.check_box :activo, class: "form-check-input" %>
+    <%= form.label :activo, "Activo", class: "form-check-label fw-bold" %>
+  </div>
+
+  <%= form.submit "Guardar", class: "btn btn-primary" %>
+  <%= link_to "Volver", empleados_path, class: "btn btn-secondary" %>
+
+<% end %>

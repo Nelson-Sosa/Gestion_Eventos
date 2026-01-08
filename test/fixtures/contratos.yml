@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  numero_contrato: MyString
+  fecha_contrato: 2025-10-27 19:44:19
+  monto_total: 9.99
+  estado: MyString
+  evento: one
+
+two:
+  numero_contrato: MyString
+  fecha_contrato: 2025-10-27 19:44:19
+  monto_total: 9.99
+  estado: MyString
+  evento: two

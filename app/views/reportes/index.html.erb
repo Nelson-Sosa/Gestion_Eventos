@@ -1,0 +1,19 @@
+<h1 class="text-center mb-4">📊 Panel de Reportes</h1>
+<p class="text-center mb-5">Seleccioná una categoría para ver el reporte correspondiente:</p>
+
+<div class="container">
+  <div class="row text-center">
+    <div class="col-md-3 mb-3">
+      <%= link_to "Clientes", clientes_reportes_path, class: "btn btn-primary btn-lg w-100" %>
+    </div>
+    <div class="col-md-3 mb-3">
+      <%= link_to "Eventos", eventos_reportes_path, class: "btn btn-success btn-lg w-100" %>
+    </div>
+    <div class="col-md-3 mb-3">
+      <%= link_to "Servicios", servicios_reportes_path, class: "btn btn-warning btn-lg w-100" %>
+    </div>
+    <div class="col-md-3 mb-3">
+      <%= link_to "Asignaciones", asignaciones_reportes_path, class: "btn btn-info btn-lg w-100" %>
+    </div>
+  </div>
+</div>

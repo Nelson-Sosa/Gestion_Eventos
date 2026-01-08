@@ -1,0 +1,18 @@
+current directory: C:/Users/USER/Desktop/Programacion 4/Gestion-Eventos/vendor/bundle/ruby/3.4.0/gems/nio4r-2.7.4/ext/nio4r
+C:/Ruby34-x64/bin/ruby.exe extconf.rb
+
+current directory: C:/Users/USER/Desktop/Programacion 4/Gestion-Eventos/vendor/bundle/ruby/3.4.0/gems/nio4r-2.7.4/ext/nio4r
+make DESTDIR\= sitearchdir\=./.gem.20251027-6768-hz0p2u sitelibdir\=./.gem.20251027-6768-hz0p2u clean
+make: *** No hay ninguna regla para construir el objetivo 'clean'.  Alto.
+
+current directory: C:/Users/USER/Desktop/Programacion 4/Gestion-Eventos/vendor/bundle/ruby/3.4.0/gems/nio4r-2.7.4/ext/nio4r
+make DESTDIR\= sitearchdir\=./.gem.20251027-6768-hz0p2u sitelibdir\=./.gem.20251027-6768-hz0p2u
+make: No se hace nada para 'all'.
+
+current directory: C:/Users/USER/Desktop/Programacion 4/Gestion-Eventos/vendor/bundle/ruby/3.4.0/gems/nio4r-2.7.4/ext/nio4r
+make DESTDIR\= sitearchdir\=./.gem.20251027-6768-hz0p2u sitelibdir\=./.gem.20251027-6768-hz0p2u install
+make: No se hace nada para 'install'.
+
+current directory: C:/Users/USER/Desktop/Programacion 4/Gestion-Eventos/vendor/bundle/ruby/3.4.0/gems/nio4r-2.7.4/ext/nio4r
+make DESTDIR\= sitearchdir\=./.gem.20251027-6768-hz0p2u sitelibdir\=./.gem.20251027-6768-hz0p2u clean
+make: *** No hay ninguna regla para construir el objetivo 'clean'.  Alto.

@@ -1,0 +1,45 @@
+<%= form_with(model: servicio, local: true) do |form| %>
+  <% if servicio.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(servicio.errors.count, "error") %> impidieron guardar el servicio:</h4>
+      <ul>
+        <% servicio.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :nombre, "Nombre del servicio", class: "form-label" %>
+    <%= form.text_field :nombre, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :categoria, "Tipo de servicio", class: "form-label" %>
+    <%= form.select :categoria,
+                    ["Catering", "Musica", "Iluminación", "Seguridad", "Decoración", "Fotografía"],
+                    { prompt: "Seleccione un tipo" },
+                    class: "form-select" %>
+  </div>
+
+
+
+  <div class="mb-3">
+    <%= form.label :descripcion, class: "form-label" %>
+    <%= form.text_area :descripcion, rows: 3, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :costo_base, "Costo base", class: "form-label" %>
+    <%= form.number_field :costo_base, step: 1, min: 0, class: "form-control" %>
+  </div>
+
+  <div class="form-check mb-3">
+    <%= form.check_box :activo, class: "form-check-input" %>
+    <%= form.label :activo, "Servicio activo", class: "form-check-label" %>
+  </div>
+
+  <%= form.submit class: "btn btn-success" %>
+  <%= link_to 'Volver', servicios_path, class: "btn btn-secondary" %>
+<% end %>

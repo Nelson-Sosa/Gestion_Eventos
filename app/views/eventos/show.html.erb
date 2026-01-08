@@ -1,0 +1,13 @@
+<h1><%= @evento.nombre_evento %></h1>
+
+<ul class="list-group mb-3">
+  <li class="list-group-item"><strong>Tipo:</strong> <%= @evento.tipo_evento %></li>
+  <li class="list-group-item"><strong>Cliente:</strong> <%= @evento.cliente.nombre %> <%= @evento.cliente.apellido %></li>
+  <li class="list-group-item"><strong>Fecha Inicio:</strong> <%= @evento.fecha_inicio.strftime("%d/%m/%Y %H:%M") %></li>
+  <li class="list-group-item"><strong>Fecha Fin:</strong> <%= @evento.fecha_fin.strftime("%d/%m/%Y %H:%M") %></li>
+  <li class="list-group-item"><strong>Lugar:</strong> <%= @evento.lugar %></li>
+  <li class="list-group-item"><strong>Estado:</strong> <%= @evento.estado %></li>
+</ul>
+
+<%= link_to 'Editar', edit_evento_path(@evento), class: "btn btn-primary me-2" %>
+<%= link_to 'Volver', eventos_path, class: "btn btn-secondary" %>
