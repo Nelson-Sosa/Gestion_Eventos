@@ -13,9 +13,10 @@ Aplicación desarrollada en Ruby para la gestión de eventos.
 - PostgreSQL
 
 ## 📸 Capturas de pantalla
-![Home](home.png)
-![Eventos](eventos.png)
-![Servicios](servicios.png)
+
+![Home](screenshots/home.png)
+![Eventos](screenshots/eventos.png)
+![Servicios](screenshots/servicios.png)
 
 ## ▶️ Ejecución
 ```bash
