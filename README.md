@@ -1,24 +1,22 @@
-# README
+# Gestión de Eventos
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Aplicación desarrollada en Ruby para la gestión de eventos.
 
-Things you may want to cover:
+## 🚀 Funcionalidades
+- Registro de eventos
+- Gestión de usuarios
+- CRUD completo
 
-* Ruby version
+## 🛠️ Tecnologías
+- Ruby
+- HTML / CSS
+- PostgreSQL
 
-* System dependencies
+## 📸 Capturas de pantalla
+![Home](screenshots/home.png)
+![Eventos](screenshots/eventos.png)
+![Servicios](screenshots/servicios.png)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## ▶️ Ejecución
+```bash
+ruby main.rb
